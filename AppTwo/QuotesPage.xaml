@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTwo.QuotesPage"
+			 Padding="20">
+	
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness">
+			<On Platform="Android" Value="20,30,20,20"/>
+			<On Platform="iOS" Value="20,40,20,20" />
+		</OnPlatform>
+	</ContentPage.Padding>
+	
+	<StackLayout x:Name="buttonStack">
+		<Button Text="Next" TextColor="CornflowerBlue"  HorizontalOptions="Center" Clicked="Button_Clicked"></Button>
+		<Label Text="{Binding Source={x:Reference Slider1}, Path=Value, StringFormat= 'Font Sizee: {0:F0}'}"></Label>
+		<Slider Maximum="50" Minimum="16" x:Name="Slider1"></Slider>
+		<Label x:Name="quotelabel" Text="{Binding CurrentQuotes}" FontSize="{Binding Source={x:Reference Slider1}, Path=Value}" TextColor="White"></Label>
+
+
+	</StackLayout>
+</ContentPage>
